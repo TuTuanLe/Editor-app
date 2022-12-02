@@ -8,19 +8,20 @@
 <pre id="output"></pre>
 
 <script>
-    const editor = new EditorJS({
-        autofocus: true,
-        tools: {
-            image: SimpleImage,
-        },
-    });
+    // const editor = new EditorJS({
+    //     autofocus: true,
+    //     tools: {
+    //         image: SimpleImage,
+    //     },
+    // });
 
-    const saveButton = document.getElementById('save-button');
-    const output = document.getElementById('output');
+    // const saveButton = document.getElementById('save-button');
+    // const output = document.getElementById('output');
 
     saveButton.addEventListener('click', () => {
-        editor.save().then((savedData) => {
-            output.innerHTML = JSON.stringify(savedData, null, 4);
-        });
+        console.log('tutuanle');
+        // editor.save().then((savedData) => {
+        //     output.innerHTML = JSON.stringify(savedData, null, 4);
+        // });
     });
 </script>

@@ -5,9 +5,8 @@ import { WebView } from 'react-native-webview';
 import { useAssets } from 'expo-asset';
 import { useState } from 'react';
 
-const exampleHTML = require('./simple-image/example.html');
-
 export default function App() {
+    const exampleHTML = require('./simple-image/example.html');
     console.log('PolicyHTML:', exampleHTML);
     const [index, indexLoadingError] = useAssets(require('./simple-image/example.html'));
     const [html, setHtml] = useState('');
@@ -17,13 +16,17 @@ export default function App() {
             setHtml(data);
         });
     }
+
     return (
         <WebView
             style={styles.container}
-            source={{ html }}
+            source={{ html, baseUrl: 'web/' }}
             originWhitelist={'["*"]'}
             javaScriptEnabled={true}
             domStorageEnabled={true}
+            javaScriptEnabledAndroid={true}
+            injectedJavaScript={INJECTED_JAVASCRIPT}
+            mixedContentMode="always"
         />
     );
 }
