@@ -10,17 +10,17 @@ const exampleHTML = require('./simple-image/example.html');
 export default function App() {
     console.log('PolicyHTML:', exampleHTML);
     const [index, indexLoadingError] = useAssets(require('./simple-image/example.html'));
-    // const [html, setHtml] = useState('');
+    const [html, setHtml] = useState('');
 
-    // if (index) {
-    //     readAsStringAsync(index[0].localUri).then((data) => {
-    //         setHtml(data);
-    //     });
-    // }
+    if (index) {
+        readAsStringAsync(index[0].localUri).then((data) => {
+            setHtml(data);
+        });
+    }
     return (
         <WebView
             style={styles.container}
-            source={require('./simple-image/example.html')}
+            source={{ html }}
             originWhitelist={'["*"]'}
             javaScriptEnabled={true}
             domStorageEnabled={true}
